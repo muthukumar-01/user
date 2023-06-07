@@ -1,0 +1,19 @@
+---
+ - hosts: localhost
+   become: true
+   name: install jenkins, java and docker
+   tasks:
+    - name: master task
+      script: jenkins.sh
+ - hosts: test
+   become: true
+   name: install java and docker
+   tasks:
+    - name: test task
+      script: docker.sh
+ - hosts: prod
+   become: true
+   name: install java and docker
+   tasks:
+    - name: prod task
+      script: docker.sh
